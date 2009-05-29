@@ -160,54 +160,6 @@ SOURCE=.\advapi32\_advapi32_apilist.h
 SOURCE=.\advapi32\uniadvapi32.c
 # End Source File
 # End Group
-# Begin Group "comdlg32"
-
-# PROP Default_Filter ""
-# Begin Source File
-
-SOURCE=.\comdlg32\_comdlg32_apilist.c
-# End Source File
-# Begin Source File
-
-SOURCE=.\comdlg32\_comdlg32_apilist.h
-# End Source File
-# Begin Source File
-
-SOURCE=.\comdlg32\unicomdlg32.c
-# End Source File
-# End Group
-# Begin Group "shell32"
-
-# PROP Default_Filter ""
-# Begin Source File
-
-SOURCE=.\shell32\_shell32_apilist.c
-# End Source File
-# Begin Source File
-
-SOURCE=.\shell32\_shell32_apilist.h
-# End Source File
-# Begin Source File
-
-SOURCE=.\shell32\auxshlguid.h
-# End Source File
-# Begin Source File
-
-SOURCE=.\shell32\pidl.h
-# End Source File
-# Begin Source File
-
-SOURCE=.\shell32\SHGetFolderLocation.c
-# End Source File
-# Begin Source File
-
-SOURCE=.\shell32\SHGetFolderPath.c
-# End Source File
-# Begin Source File
-
-SOURCE=.\shell32\unishell32.c
-# End Source File
-# End Group
 # Begin Source File
 
 SOURCE=.\common.c
@@ -215,52 +167,10 @@ SOURCE=.\common.c
 # Begin Source File
 
 SOURCE=.\kexbasen.def
-
-!IF  "$(CFG)" == "KernelEx Base NonShared - Win32 Release"
-
-# Begin Custom Build
-OutDir=.\Release
-ProjDir=.
-InputPath=.\kexbasen.def
-
-BuildCmds= \
-	link /LIB /NOLOGO /MACHINE:IX86 /DEF:$(ProjDir)\shell32ord.def /OUT:$(OutDir)\shell32ord.lib
-
-"$(OutDir)\shell32ord.lib" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
-   $(BuildCmds)
-
-"$(OutDir)\shell32ord.exp" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
-   $(BuildCmds)
-# End Custom Build
-
-!ELSEIF  "$(CFG)" == "KernelEx Base NonShared - Win32 Debug"
-
-# Begin Custom Build
-OutDir=.\Debug
-ProjDir=.
-InputPath=.\kexbasen.def
-
-BuildCmds= \
-	link /LIB /NOLOGO /MACHINE:IX86 /DEF:$(ProjDir)\shell32ord.def /OUT:$(OutDir)\shell32ord.lib
-
-"$(OutDir)\shell32ord.lib" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
-   $(BuildCmds)
-
-"$(OutDir)\shell32ord.exp" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
-   $(BuildCmds)
-# End Custom Build
-
-!ENDIF 
-
 # End Source File
 # Begin Source File
 
 SOURCE=.\main.c
-# End Source File
-# Begin Source File
-
-SOURCE=.\shell32ord.def
-# PROP Exclude_From_Build 1
 # End Source File
 # Begin Source File
 

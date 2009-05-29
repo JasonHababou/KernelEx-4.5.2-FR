@@ -26,11 +26,9 @@
 #include "gdi32/_gdi32_apilist.h"
 #include "user32/_user32_apilist.h"
 #include "advapi32/_advapi32_apilist.h"
-#include "comdlg32/_comdlg32_apilist.h"
-#include "shell32/_shell32_apilist.h"
 //#include "/__apilist.h"
 
-static apilib_api_table api_table[7];
+static apilib_api_table api_table[5];
 
 static void fill_apitable()
 {
@@ -38,8 +36,6 @@ static void fill_apitable()
 	api_table[1] = apitable_gdi32;
 	api_table[2] = apitable_user32;
 	api_table[3] = apitable_advapi32;
-	api_table[4] = apitable_comdlg32;
-	api_table[5] = apitable_shell32;
 	//last entry is null terminator
 }
 
@@ -50,13 +46,20 @@ const apilib_api_table* get_api_table()
 	fill_apitable();
 	//check if unicows is available
 	if (!unifwd_init())
+	{
+		//force reference advapi32
+		if (!&api_table)
+		{
+			RegOpenKey(0,0,0);
+		}
 		return NULL;
+	}
 	return api_table;
 }
 
 BOOL init()
 {
-	return common_init() && init_kernel32() && init_gdi32() && init_user32() && init_advapi32() && init_comdlg32() && init_shell32();
+	return common_init() && init_kernel32() && init_gdi32() && init_user32() && init_advapi32();
 }
 
 BOOL APIENTRY DllMain(HINSTANCE instance, DWORD reason, BOOL load_static)
