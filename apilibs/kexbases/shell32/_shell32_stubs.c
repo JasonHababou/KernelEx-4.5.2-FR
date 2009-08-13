@@ -23,3 +23,4 @@
 
 UNIMPL_FUNC(SHParseDisplayName, 5);
 UNIMPL_FUNC(SHCreateShellItem, 4);
+UNIMPL_FUNC(SHOpenFolderAndSelectItems, 4);
