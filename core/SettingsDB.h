@@ -22,10 +22,6 @@
 #ifndef __SETTINGSDB_H
 #define __SETTINGSDB_H
 
-#ifdef _MSC_VER
-#pragma warning(disable:4786)
-#endif
-
 #include "sstring.hpp"
 #include <map>
 #include "resolver.h"
