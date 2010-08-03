@@ -50,3 +50,9 @@ char* file_fixWprefix(char* in)
 	}
 	return in;
 }
+
+void fatal_error(const char* msg)
+{
+	MessageBox(NULL, msg, "KernelEx error", MB_OK | MB_ICONERROR);
+	ExitProcess(1);
+}
