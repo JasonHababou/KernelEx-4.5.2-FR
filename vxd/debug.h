@@ -1,6 +1,6 @@
 /*
  *  KernelEx
- *  Copyright (C) 2009, Xeno86
+ *  Copyright (C) 2011, Xeno86
  *
  *  This file is part of KernelEx source code.
  *
@@ -23,8 +23,8 @@
 #define __DEBUG_H
 
 #ifdef _DEBUG
-#include <stdio.h>
-#define DBGPRINTF(x) _Debug_Printf_Service x
+void debug_printf(const char* fmt, ...);
+#define DBGPRINTF(x) debug_printf x
 #else
 #define DBGPRINTF(x) do {} while (0)
 #endif
