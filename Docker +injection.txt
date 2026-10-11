@@ -1,0 +1,33 @@
+First Install 
+-RessourceHacker : https://www.angusj.com/resourcehacker/#download le fichier exe.
+https://www.angusj.com/resourcehacker/reshacker_setup.exe 
+- Docker Desktop : https://docs.docker.com/desktop/setup/install/windows-install/
+- NSIS 2.46 https://sourceforge.net/projects/nsis/files/NSIS%202/2.46/
+In powerShell terminal do :
+    docker build -t kernelex-rc .
+then 
+    docker run --rm -v "${PWD}:/work" kernelex-rc
+then
+    docker run --rm -v "${PWD}:/work" -w /work kernelex-rc sh build_res.sh
+then 
+    powershell -ExecutionPolicy Bypass -File .\inject_all.ps1
+
+You can use now KernelEx-4.5.2-FR-cp1252.nsi in your MakeNSIS
+
+////
+En premier lieu installez : 
+-RessourceHacker : https://www.angusj.com/resourcehacker/#download le fichier exe.
+https://www.angusj.com/resourcehacker/reshacker_setup.exe 
+- Docker Desktop : https://docs.docker.com/desktop/setup/install/windows-install/
+- NSIS 2.46 https://sourceforge.net/projects/nsis/files/NSIS%202/2.46/
+
+Dans un terminal powerShell ouvert dans le projet faites:
+    docker build -t kernelex-rc .
+puis 
+    docker run --rm -v "${PWD}:/work" kernelex-rc
+puis
+    docker run --rm -v "${PWD}:/work" -w /work kernelex-rc sh build_res.sh
+enfin faites 
+    powershell -ExecutionPolicy Bypass -File .\inject_all.ps1
+
+Vous pouvez alors lancez KernelEx-4.5.2-FR-cp1252.nsi dans MakeNSIS

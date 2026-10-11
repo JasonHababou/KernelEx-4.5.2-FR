@@ -1,0 +1,149 @@
+// Traduction française KernelEx 4.5.2 — IDs conservés. Encodage CP1252.
+//Microsoft Developer Studio generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// Neutral resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_NEU)
+#ifdef _WIN32
+LANGUAGE LANG_NEUTRAL, SUBLANG_NEUTRAL
+#pragma code_page(1252)
+#endif //_WIN32
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_DIALOG1 DIALOG DISCARDABLE  0, 0, 296, 78
+STYLE DS_MODALFRAME | DS_CENTER | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "KernelEx"
+FONT 8, "MS Shell Dlg"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,122,57,50,14
+    ICON            32516,IDC_STATIC,7,7,20,20
+    LTEXT           "KernelEx a été installé avec succès et est maintenant activé pour toutes les applications.\nPour exécuter des applications récentes ou corriger les plantages d’anciennes applications, ouvrez l’onglet KernelEx dans les propriétés de l’exécutable ou de son raccourci.",
+                    IDC_STATIC,36,7,253,34
+    CONTROL         "Pour en savoir plus sur KernelEx, consultez le <a href=""http://kernelex.sourceforge.net/wiki/"">Wiki de KernelEx</a>",
+                    IDC_LINK,"SysLink",WS_TABSTOP,36,39,253,10
+    RTEXT           "VERSIONSTR",IDC_VERSION,224,62,65,9,WS_DISABLED
+END
+
+IDD_DIALOG2 DIALOG DISCARDABLE  0, 0, 296, 78
+STYLE DS_MODALFRAME | DS_CENTER | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "KernelEx"
+FONT 8, "MS Shell Dlg"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,122,57,50,14
+    ICON            32516,IDC_STATIC,7,7,20,20
+    LTEXT           "KernelEx a été installé avec succès, mais il est désactivé par défaut et activé uniquement pour certaines applications. Pour activer KernelEx pour les applications récentes, ouvrez l’onglet KernelEx dans les propriétés de l’exécutable ou de son raccourci.",
+                    IDC_STATIC,36,7,253,34
+    CONTROL         "Pour en savoir plus sur KernelEx, consultez le <a href=""http://kernelex.sourceforge.net/wiki/"">Wiki de KernelEx</a>",
+                    IDC_LINK,"SysLink",WS_TABSTOP,36,39,253,10
+    RTEXT           "VERSIONSTR",IDC_VERSION,224,62,65,9,WS_DISABLED
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO DISCARDABLE 
+BEGIN
+    IDD_DIALOG1, DIALOG
+    BEGIN
+        LEFTMARGIN, 36
+        RIGHTMARGIN, 289
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 71
+    END
+
+    IDD_DIALOG2, DIALOG
+    BEGIN
+        LEFTMARGIN, 36
+        RIGHTMARGIN, 289
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 71
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_FAILURE             "KernelEx n’a pas été installé correctement."
+    IDS_FAILURETITLE        "Erreur d’installation de KernelEx"
+END
+
+#endif    // Neutral resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+/////////////////////////////////////////////////////////////////////////////
+// Polish resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_PLK)
+#ifdef _WIN32
+LANGUAGE LANG_POLISH, SUBLANG_DEFAULT
+#pragma code_page(1250)
+#endif //_WIN32
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+#endif    // Polish resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

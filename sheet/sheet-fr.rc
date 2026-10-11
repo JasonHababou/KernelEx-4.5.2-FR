@@ -1,0 +1,196 @@
+// Traduction française KernelEx 4.5.2 — IDs conservés. Encodage CP1252.
+//Microsoft Developer Studio generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// Polish resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_PLK)
+#ifdef _WIN32
+LANGUAGE LANG_POLISH, SUBLANG_DEFAULT
+#pragma code_page(1250)
+#endif //_WIN32
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+#ifndef _MAC
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION 1,0,0,7
+ PRODUCTVERSION 1,0,0,7
+ FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x40004L
+ FILETYPE 0x2L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "000004b0"
+        BEGIN
+            VALUE "Comments", "\0"
+            VALUE "CompanyName", "Xeno86\0"
+            VALUE "FileDescription", "KernelEx Properties Tab\0"
+            VALUE "FileVersion", "1, 0, 0, 7\0"
+            VALUE "InternalName", "sheet\0"
+            VALUE "LegalCopyright", "Copyright © 2009-2011, Xeno86\0"
+            VALUE "LegalTrademarks", "\0"
+            VALUE "OriginalFilename", "sheet.dll\0"
+            VALUE "PrivateBuild", "\0"
+            VALUE "ProductName", "KernelEx\0"
+            VALUE "ProductVersion", "1, 0, 0, 7\0"
+            VALUE "SpecialBuild", "\0"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x0, 1200
+    END
+END
+
+#endif    // !_MAC
+
+#endif    // Polish resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+/////////////////////////////////////////////////////////////////////////////
+// English (U.S.) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE LANG_FRENCH, SUBLANG_FRENCH
+#pragma code_page(1252)
+#endif //_WIN32
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_PROPPAGE DIALOG DISCARDABLE  0, 0, 232, 191
+STYLE WS_CHILD | WS_DISABLED | WS_CAPTION
+CAPTION "KernelEx"
+FONT 8, "MS Shell Dlg"
+BEGIN
+    GROUPBOX        "Options de base",IDC_GCOMPAT,7,30,218,78
+    CONTROL         "Utiliser les options de compatibilité par défaut [%s]",IDC_DEFAULT,
+                    "Button",BS_AUTORADIOBUTTON | WS_GROUP | WS_TABSTOP,15,
+                    43,208,10
+    CONTROL         "Désactiver les extensions KernelEx",IDC_DISABLE,"Button",
+                    BS_AUTORADIOBUTTON | WS_TABSTOP,15,57,208,10
+    CONTROL         "Utiliser un mode de compatibilité spécifique :",IDC_COMPAT,"Button",
+                    BS_AUTORADIOBUTTON | WS_TABSTOP,15,71,208,10
+    COMBOBOX        IDC_SYSTEM,15,84,157,60,CBS_DROPDOWNLIST | WS_DISABLED | 
+                    WS_VSCROLL | WS_TABSTOP
+    LTEXT           "kexver here",IDC_KEXVER,7,175,71,9,WS_DISABLED
+    LTEXT           "Essayez de modifier les options de compatibilité si le programme présente des problèmes.",
+                    IDC_TCOMPAT,7,7,218,22
+    CONTROL         "",IDC_HORIZ1,"Static",SS_BLACKFRAME | SS_SUNKEN,7,174,
+                    218,1
+    GROUPBOX        "Options avancées",IDC_GADVAN,7,114,218,57
+    CONTROL         "Ne pas utiliser ces paramètres dans les processus enfants",
+                    IDC_NOINHERIT,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,15,
+                    127,208,10
+    CONTROL         "Utiliser le hook d’API",IDC_HOOK,"Button",BS_AUTOCHECKBOX | NOT 
+                    WS_VISIBLE | WS_TABSTOP,15,141,208,10
+    CONTROL         "Remplacer les paramètres des modules individuels",IDC_OVERRIDE,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,15,155,208,10
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO DISCARDABLE 
+BEGIN
+    IDD_PROPPAGE, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 225
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 184
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    TIP_DEFAULT             "Utiliser pour ce module les paramètres par défaut définis lors de l’installation (entre crochets). Cette option permet de remplacer les paramètres de l’exécutable principal ou du processus parent."
+    TIP_DISABLE             "Select this option to execute module as if KernelEx wasn't installed."
+    TIP_COMPAT              "Choisissez le mode de compatibilité requis par l’application. Cette option permet de modifier l’identification du système d’exploitation et d’émuler le comportement d’autres systèmes."
+    TIP_SYSTEM              "Sélectionnez le mode de compatibilité souhaité dans la liste."
+    TIP_NOINHERIT           "Désactive l’héritage de ces paramètres. Normalement, les programmes lancés par cette application utilisent les paramètres de cet onglet par défaut. Utilisez cette option pour désactiver ce comportement."
+    TIP_OVERRIDE            "Disables usage of per module settings. Use this option to use same settings for all modules in the application."
+    TIP_HOOK                "Utilisez cette option pour activer le débogage du hook d’API."
+    IDS_ENABLED             "KernelEx est activé"
+    IDS_DISABLED            "KernelEx est désactivé"
+END
+
+#endif    // English (U.S.) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+
