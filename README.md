@@ -45,9 +45,10 @@ Open `KernelEx-4.5.2-FR-cp1252.nsi` with MakeNSIS (NSIS 2.46) to generate the tr
 
 ## Version 4.5.2019.24 (jumper's update) – single installer
 
-By default the `.nsi` now builds **`KernelEx-4.5.2019.24-FR.exe`**: KernelEx 4.5.2 FR
-with jumper's KernelEx 2016/2019 update (MSFN topic 173233) merged in, so only
-one installer has to be run. Build the plain 4.5.2 installer with `makensis /DKEX452`.
+`KernelEx-4.5.2019.24-FR-cp1252.nsi` builds **`KernelEx-4.5.2019.24-FR.exe`**: KernelEx
+4.5.2 FR with jumper's KernelEx 2016/2019 update (MSFN topic 173233) merged in, so only
+one installer has to be run. `KernelEx-4.5.2-FR-cp1252.nsi` is unchanged and still builds
+the plain 4.5.2 installer.
 
 What the update brings: kernel DLLs 4.5.2016.18–.24 (many more APIs), new modes
 **WINXP3** (XP SP3), WIN7A, WIN8/8.1, WIN10, per-application settings for recent
@@ -120,9 +121,10 @@ Ouvrez `KernelEx-4.5.2-FR-cp1252.nsi` avec MakeNSIS (NSIS 2.46) pour générer l
 
 ## Version 4.5.2019.24 (mise à jour de jumper) – installeur unique
 
-Par défaut, le `.nsi` génère maintenant **`KernelEx-4.5.2019.24-FR.exe`** : KernelEx 4.5.2 FR
-avec la mise à jour KernelEx 2016/2019 de jumper (sujet MSFN 173233) intégrée, un seul
-installeur à lancer. L'installeur 4.5.2 seul se génère avec `makensis /DKEX452`.
+`KernelEx-4.5.2019.24-FR-cp1252.nsi` génère **`KernelEx-4.5.2019.24-FR.exe`** : KernelEx
+4.5.2 FR avec la mise à jour KernelEx 2016/2019 de jumper (sujet MSFN 173233) intégrée, un
+seul installeur à lancer. `KernelEx-4.5.2-FR-cp1252.nsi` est inchangé et génère toujours
+l'installeur 4.5.2 seul.
 
 Apports : DLL du noyau 4.5.2016.18 à .24 (beaucoup plus d'API), nouveaux modes
 **WINXP3** (XP SP3), WIN7A, WIN8/8.1, WIN10, réglages par programme pour les logiciels
