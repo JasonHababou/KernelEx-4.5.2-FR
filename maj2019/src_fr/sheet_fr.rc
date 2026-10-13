@@ -1,0 +1,33 @@
+102 DIALOG 0, 0, 232, 191
+STYLE DS_SETFONT | WS_CHILD | WS_DISABLED | WS_CAPTION
+CAPTION "KernelEx"
+LANGUAGE LANG_NEUTRAL, SUBLANG_NEUTRAL
+FONT 8, "MS Shell Dlg"
+{
+   CONTROL "%s lié :\t%s GMT\n\t\tsous Windows %u.%u, pour Windows %u.%u.", 1001, STATIC, SS_LEFT | WS_CHILD | WS_VISIBLE | WS_GROUP, 7, 7, 232, 22
+   CONTROL "Options de base", 1002, BUTTON, BS_GROUPBOX | WS_CHILD | WS_VISIBLE, 7, 30, 218, 75
+   CONTROL "Utiliser les options de compatibilité par défaut (%s)", 1004, BUTTON, BS_AUTORADIOBUTTON | WS_CHILD | WS_VISIBLE | WS_GROUP | WS_TABSTOP, 15, 43, 208, 10
+   CONTROL "Désactiver les extensions KernelEx", 1005, BUTTON, BS_AUTORADIOBUTTON | WS_CHILD | WS_VISIBLE | WS_TABSTOP, 15, 57, 208, 10
+   CONTROL "Utiliser un mode de compatibilité spécifique :", 1006, BUTTON, BS_AUTORADIOBUTTON | WS_CHILD | WS_VISIBLE | WS_TABSTOP, 15, 71, 208, 10
+   CONTROL "", 1007, COMBOBOX, CBS_DROPDOWNLIST | WS_CHILD | WS_VISIBLE | WS_DISABLED | WS_VSCROLL | WS_TABSTOP, 15, 84, 157, 120
+   CONTROL "Options avancées", 1003, BUTTON, BS_GROUPBOX | WS_CHILD | WS_VISIBLE, 7, 112, 218, 57
+   CONTROL "Ne pas utiliser ces paramètres dans les processus enfants", 1008, BUTTON, BS_AUTOCHECKBOX | WS_CHILD | WS_VISIBLE | WS_TABSTOP, 15, 126, 208, 10
+   CONTROL "Activer la journalisation des API", 1009, BUTTON, BS_AUTOCHECKBOX | WS_CHILD | WS_VISIBLE | WS_TABSTOP, 15, 140, 208, 10
+   CONTROL "Remplacer les paramètres des modules individuels", 1010, BUTTON, BS_AUTOCHECKBOX | WS_CHILD | WS_VISIBLE | WS_TABSTOP, 15, 154, 208, 10
+   CONTROL "", 1011, STATIC, SS_BLACKFRAME | SS_SUNKEN | WS_CHILD | WS_VISIBLE, 7, 174, 218, 1
+   CONTROL "Noyau KernelEx v%u.%u.%u", 1012, STATIC, SS_LEFT | WS_CHILD | WS_VISIBLE | WS_GROUP, 7, 175, 109, 9
+}
+
+STRINGTABLE
+LANGUAGE LANG_NEUTRAL, SUBLANG_NEUTRAL
+{
+  1, "Utiliser pour ce module les paramètres par défaut définis lors de l'installation. Cette option permet de remplacer les paramètres de l'exécutable principal ou du processus parent."
+  2, "Sélectionnez cette option pour exécuter le module comme si KernelEx n'était pas installé."
+  3, "Choisissez le mode de compatibilité requis par l'application. Cette option permet de modifier l'identification du système d'exploitation et d'émuler le comportement d'autres systèmes."
+  4, "Sélectionnez le mode de compatibilité souhaité dans la liste."
+  5, "Désactive l'héritage de ces paramètres. Normalement, les programmes lancés par cette application utilisent les paramètres de cet onglet par défaut. Cochez cette option pour désactiver ce comportement."
+  6, "Utilisez cette option pour activer la journalisation des API (fonction de débogage)."
+  7, "Désactive les paramètres propres à chaque module. Cochez cette option pour utiliser les mêmes paramètres pour tous les modules de l'application."
+  8, "KernelEx est activé"
+  9, "KernelEx est désactivé"
+}

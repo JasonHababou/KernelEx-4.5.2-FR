@@ -1,0 +1,8 @@
+STRINGTABLE
+LANGUAGE LANG_NEUTRAL, SUBLANG_NEUTRAL
+{
+  1, 	"KernelEx n’a pas trouvé son pilote noyau.\nVeuillez réinstaller KernelEx."
+  2, 	"Version du module incompatible (attendue : %d, trouvée : %d).\nVeuillez réinstaller KernelEx."
+  3, 	"Une autre version de KernelEx a été détectée : %s.\nDésinstallez toutes les autres versions, puis réinstallez la plus récente."
+  4, 	"Le pilote virtuel de KernelEx n’a pas pu s’initialiser."
+}

@@ -1,0 +1,32 @@
+101 DIALOG 0, 0, 296, 78
+STYLE DS_SETFONT | DS_MODALFRAME | DS_CENTER | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "KernelEx - Vérification"
+LANGUAGE LANG_NEUTRAL, SUBLANG_NEUTRAL
+FONT 8, "MS Shell Dlg"
+{
+   CONTROL "OK", 1, BUTTON, BS_DEFPUSHBUTTON | WS_CHILD | WS_VISIBLE | WS_TABSTOP, 122, 57, 50, 14
+   CONTROL 32516, -1, STATIC, SS_ICON | WS_CHILD | WS_VISIBLE, 7, 7, 20, 20
+   CONTROL "KernelEx a été installé avec succès et est maintenant activé pour toutes les applications.\nPour exécuter des applications récentes ou corriger les plantages d'anciennes applications, ouvrez l'onglet KernelEx dans les propriétés de l'exécutable ou de son raccourci.", -1, STATIC, SS_LEFT | WS_CHILD | WS_VISIBLE | WS_GROUP, 36, 7, 253, 34
+   CONTROL "Pour en savoir plus sur KernelEx, consultez le <a href=\"http://kernelex.sourceforge.net/wiki/\">Wiki de KernelEx</a>", 1001, "SysLink", WS_CHILD | WS_VISIBLE | WS_TABSTOP, 36, 39, 253, 10
+   CONTROL "VERSIONSTR", 1003, STATIC, SS_RIGHT | WS_CHILD | WS_VISIBLE | WS_GROUP, 186, 62, 103, 9
+}
+
+102 DIALOG 0, 0, 296, 78
+STYLE DS_SETFONT | DS_MODALFRAME | DS_CENTER | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "KernelEx"
+LANGUAGE LANG_NEUTRAL, SUBLANG_NEUTRAL
+FONT 8, "MS Shell Dlg"
+{
+   CONTROL "OK", 1, BUTTON, BS_DEFPUSHBUTTON | WS_CHILD | WS_VISIBLE | WS_TABSTOP, 122, 57, 50, 14
+   CONTROL 32516, -1, STATIC, SS_ICON | WS_CHILD | WS_VISIBLE, 7, 7, 20, 20
+   CONTROL "KernelEx a été installé avec succès, mais il est désactivé par défaut et activé uniquement pour certaines applications. Pour activer KernelEx pour les applications récentes, ouvrez l'onglet KernelEx dans les propriétés de l'exécutable ou de son raccourci.", -1, STATIC, SS_LEFT | WS_CHILD | WS_VISIBLE | WS_GROUP, 36, 7, 253, 34
+   CONTROL "Pour en savoir plus sur KernelEx, consultez le <a href=\"http://kernelex.sourceforge.net/wiki/\">Wiki de KernelEx</a>", 1001, "SysLink", WS_CHILD | WS_VISIBLE | WS_TABSTOP, 36, 39, 253, 10
+   CONTROL "VERSIONSTR", 1003, STATIC, SS_RIGHT | WS_CHILD | WS_VISIBLE | WS_GROUP, 185, 62, 104, 9
+}
+
+STRINGTABLE
+LANGUAGE LANG_NEUTRAL, SUBLANG_NEUTRAL
+{
+  1, "KernelEx n'a pas été installé correctement."
+  2, "Erreur d'installation de KernelEx"
+}

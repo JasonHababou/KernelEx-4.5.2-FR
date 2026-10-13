@@ -43,6 +43,38 @@ Run these commands in a PowerShell terminal, from the root of the project:
 
 Open `KernelEx-4.5.2-FR-cp1252.nsi` with MakeNSIS (NSIS 2.46) to generate the translated installer.
 
+## Version 4.5.2019.24 (jumper's update) – single installer
+
+By default the `.nsi` now builds **`KernelEx-4.5.2019.24-FR.exe`**: KernelEx 4.5.2 FR
+with jumper's KernelEx 2016/2019 update (MSFN topic 173233) merged in, so only
+one installer has to be run. Build the plain 4.5.2 installer with `makensis /DKEX452`.
+
+What the update brings: kernel DLLs 4.5.2016.18–.24 (many more APIs), new modes
+**WINXP3** (XP SP3), WIN7A, WIN8/8.1, WIN10, per-application settings for recent
+programs (Firefox, VLC, 7-Zip, Opera, Office…) and the `api-ms-win` DLLs of
+Windows 7 programs.
+
+The `maj2019/` folder:
+- `jumper/` – jumper's original files, untouched (`KERNELEX.DLL` is v17: jumper
+  reports v18 as broken, see `NOTE.TXT`).
+- `src_fr/` – French resources (UTF-8, Resource Hacker syntax): `sheet_fr.rc`
+  (Compatibility tab, rebuilt on jumper's layout since the control IDs changed),
+  `verify_fr.rc`, `kernelex_fr.rc` (core error messages).
+- `build_maj2019.py` – generates the translated `KernelEx-fr.dll`, `sheet-fr.dll`,
+  `verify-fr.exe`, a `core.ini` with French mode descriptions plus the missing
+  **NT2K** alias (used by `settings.reg`), `kexmaj.reg` (jumper's per-application
+  settings, without the shortcut-handler redirection and the hard-coded InstallDir)
+  and `api-ms-w.reg` (5 malformed quote lines fixed). Run it after editing a file of
+  `src_fr/`:
+  ```powershell
+  python maj2019\build_maj2019.py
+  ```
+  (no Docker needed; Resource Hacker path can be given with `--rh`).
+
+Left out on purpose: `LZDLL.REG` (redirects `Dbghelp`, `Winhttp`… to `LZ32.dll`)
+and the development files (`.C`, `.PDB`, `.MAP`, `APILOG`, `APIHOOK`).
+`PDH`, `PSAPI`, `UXTHEME`, `WTSAPI32`, `USERENV` are identical to 4.5.2.
+
 ---
 
 # KernelEx 4.5.2 – Fork de traduction française
@@ -85,3 +117,33 @@ Exécutez ces commandes dans un terminal PowerShell, à la racine du projet :
 
 ## Création de l'installeur
 Ouvrez `KernelEx-4.5.2-FR-cp1252.nsi` avec MakeNSIS (NSIS 2.46) pour générer l'installeur traduit.
+
+## Version 4.5.2019.24 (mise à jour de jumper) – installeur unique
+
+Par défaut, le `.nsi` génère maintenant **`KernelEx-4.5.2019.24-FR.exe`** : KernelEx 4.5.2 FR
+avec la mise à jour KernelEx 2016/2019 de jumper (sujet MSFN 173233) intégrée, un seul
+installeur à lancer. L'installeur 4.5.2 seul se génère avec `makensis /DKEX452`.
+
+Apports : DLL du noyau 4.5.2016.18 à .24 (beaucoup plus d'API), nouveaux modes
+**WINXP3** (XP SP3), WIN7A, WIN8/8.1, WIN10, réglages par programme pour les logiciels
+récents (Firefox, VLC, 7-Zip, Opera, Office…) et DLL `api-ms-win` des programmes Windows 7.
+
+Le dossier `maj2019/` :
+- `jumper/` – fichiers originaux de jumper, non modifiés (`KERNELEX.DLL` en v17 : jumper
+  signale la v18 comme cassée, voir `NOTE.TXT`).
+- `src_fr/` – ressources françaises (UTF-8, syntaxe Resource Hacker) : `sheet_fr.rc`
+  (onglet Compatibilité, refait sur la mise en page de jumper car les identifiants de
+  contrôles ont changé), `verify_fr.rc`, `kernelex_fr.rc` (messages d'erreur du noyau).
+- `build_maj2019.py` – génère `KernelEx-fr.dll`, `sheet-fr.dll`, `verify-fr.exe` traduits,
+  un `core.ini` aux libellés de modes en français avec l'alias **NT2K** manquant (utilisé
+  par `settings.reg`), `kexmaj.reg` (réglages par programme de jumper, sans la redirection
+  du gestionnaire de raccourcis ni l'InstallDir codé en dur) et `api-ms-w.reg` (5 lignes
+  aux guillemets mal formés corrigées). À relancer après modification de `src_fr/` :
+  ```powershell
+  python maj2019\build_maj2019.py
+  ```
+  (pas besoin de Docker ; chemin de Resource Hacker modifiable avec `--rh`).
+
+Écartés volontairement : `LZDLL.REG` (redirige `Dbghelp`, `Winhttp`… vers `LZ32.dll`)
+et les fichiers de développement (`.C`, `.PDB`, `.MAP`, `APILOG`, `APIHOOK`).
+`PDH`, `PSAPI`, `UXTHEME`, `WTSAPI32`, `USERENV` sont identiques à la 4.5.2.

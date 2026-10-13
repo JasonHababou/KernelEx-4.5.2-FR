@@ -1,5 +1,12 @@
-  !define _VERSION '4.5.2'
-  !define _VERSION_CODE 0x04050078
+  ; Par defaut : KernelEx 4.5.2 FR + mise a jour 4.5.2019.24 de jumper (dossier
+  ; maj2019, voir maj2019\build_maj2019.py). makensis /DKEX452 : 4.5.2 seul.
+  !ifndef KEX452
+    !define _VERSION '4.5.2019.24'
+    !define _VERSION_CODE 0x040507E0
+  !else
+    !define _VERSION '4.5.2'
+    !define _VERSION_CODE 0x04050078
+  !endif
   
   !ifndef _DEBUG
     !define FLAVOUR 'Release'
@@ -7,6 +14,29 @@
   !else
     !define FLAVOUR 'Debug'
     !define VERSION '${_VERSION} Debug'
+  !endif
+
+  ; Fichiers installes (4.5.2019.24 : binaires de jumper, traduits si besoin)
+  !ifndef KEX452
+    !define F_KERNELEX "maj2019\KernelEx-fr.dll"
+    !define F_KEXBASES "maj2019\jumper\KEXBASES.DLL"
+    !define F_KEXBASEN "maj2019\jumper\KEXBASEN.DLL"
+    !define F_SHEET    "maj2019\sheet-fr.dll"
+    !define F_KEXCOM   "maj2019\jumper\KEXCOM.DLL"
+    !define F_COREINI  "maj2019\core.ini"
+    !define F_VXD      "maj2019\jumper\VKRNLEX.VXD"
+    !define F_MSIMG32  "maj2019\jumper\MSIMG32.DLL"
+    !define F_VERIFY   "maj2019\verify-fr.exe"
+  !else
+    !define F_KERNELEX "Core\${FLAVOUR}\KernelEx-fr.dll"
+    !define F_KEXBASES "apilibs\kexbases\${FLAVOUR}\kexbases-fr.dll"
+    !define F_KEXBASEN "apilibs\kexbasen\${FLAVOUR}\kexbasen-fr.dll"
+    !define F_SHEET    "sheet\${FLAVOUR}\sheet-fr.dll"
+    !define F_KEXCOM   "kexCOM\${FLAVOUR}\kexCOM.dll"
+    !define F_COREINI  "apilibs\core.ini"
+    !define F_VXD      "vxd\${FLAVOUR}\VKrnlEx.vxd"
+    !define F_MSIMG32  "auxiliary\msimg32-fr.dll"
+    !define F_VERIFY   "verify\${FLAVOUR}\verify-fr.exe"
   !endif
 
 ;--------------------------------
@@ -25,7 +55,7 @@
   ;Name and file
   Name "KernelEx"
   Caption "Installation de KernelEx ${VERSION}"
-  OutFile "KernelEx-dev.exe"
+  OutFile "KernelEx-${_VERSION}-FR.exe"
 
   ;Default installation folder
   InstallDir "$WINDIR\KernelEx"
@@ -235,35 +265,35 @@ Section "Install"
   ;UpdateDLL_Func params:
   ;$R4 - target; $R5 - tempdir; $R6 - register?; $R7 - source
   GetTempFileName $0 "$INSTDIR"
-  File /oname=$0 "Core\${FLAVOUR}\KernelEx-fr.dll"
+  File /oname=$0 "${F_KERNELEX}"
   StrCpy $R4 "$INSTDIR\KernelEx.dll"
   StrCpy $R6 "0"
   StrCpy $R7 $0
   Call UpgradeDLL_Func
   
   GetTempFileName $0 "$INSTDIR"
-  File /oname=$0 "apilibs\kexbases\${FLAVOUR}\kexbases-fr.dll"
+  File /oname=$0 "${F_KEXBASES}"
   StrCpy $R4 "$INSTDIR\kexbases.dll"
   StrCpy $R6 "0"
   StrCpy $R7 $0
   Call UpgradeDLL_Func
   
   GetTempFileName $0 "$INSTDIR"
-  File /oname=$0 "apilibs\kexbasen\${FLAVOUR}\kexbasen-fr.dll"
+  File /oname=$0 "${F_KEXBASEN}"
   StrCpy $R4 "$INSTDIR\kexbasen.dll"
   StrCpy $R6 "0"
   StrCpy $R7 $0
   Call UpgradeDLL_Func
   
   GetTempFileName $0 "$INSTDIR"
-  File /oname=$0 "sheet\${FLAVOUR}\sheet-fr.dll"
+  File /oname=$0 "${F_SHEET}"
   StrCpy $R4 "$INSTDIR\sheet.dll"
   StrCpy $R6 "1"
   StrCpy $R7 $0
   Call UpgradeDLL_Func
   
   GetTempFileName $0 "$INSTDIR"
-  File /oname=$0 "kexCOM\${FLAVOUR}\kexCOM.dll"
+  File /oname=$0 "${F_KEXCOM}"
   StrCpy $R4 "$INSTDIR\kexCOM.dll"
   StrCpy $R6 "1"
   StrCpy $R7 $0
@@ -271,18 +301,18 @@ Section "Install"
 
   SetOverwrite on
   
-  File apilibs\core.ini
+  File /oname=core.ini "${F_COREINI}"
   File apilibs\settings.reg
   File license.txt
   File "Release Notes.txt"
   
   GetTempFileName $0 "$INSTDIR"
-  File /oname=$0 "vxd\${FLAVOUR}\VKrnlEx.vxd"
+  File /oname=$0 "${F_VXD}"
   Delete "$INSTDIR\VKrnlEx.vxd"
   Rename /REBOOTOK $0 "$INSTDIR\VKrnlEx.vxd"
   
   GetTempFileName $0 "$INSTDIR"
-  File /oname=$0 auxiliary\msimg32-fr.dll
+  File /oname=$0 "${F_MSIMG32}"
   Delete "$INSTDIR\msimg32.dll"
   Rename /REBOOTOK $0  "$INSTDIR\msimg32.dll"
   WriteRegStr HKLM "Software\KernelEx\KnownDLLs" \
@@ -327,6 +357,16 @@ Section "Install"
   
   ExecWait '"$WINDIR\regedit.exe" /s "$INSTDIR\settings.reg"'
   Delete "$INSTDIR\settings.reg"
+
+  !ifndef KEX452
+    ;4.5.2019.24 : reglages par programme de jumper + DLL api-ms-win
+    File maj2019\kexmaj.reg
+    ExecWait '"$WINDIR\regedit.exe" /s "$INSTDIR\kexmaj.reg"'
+    Delete "$INSTDIR\kexmaj.reg"
+    File maj2019\api-ms-w.reg
+    ExecWait '"$WINDIR\regedit.exe" /s "$INSTDIR\api-ms-w.reg"'
+    Delete "$INSTDIR\api-ms-w.reg"
+  !endif
   
   CreateDirectory $WINDIR\AppPatch\Custom
   File /oname=$WINDIR\AppPatch\Custom\KernelEx.sdb "util\sdbcreate\sdbdb\KernelEx.sdb"  
@@ -349,7 +389,7 @@ Section "Install"
   
   ;Write verifier
   SetOverWrite on
-  File /oname=verify.exe verify\${FLAVOUR}\verify-fr.exe
+  File /oname=verify.exe "${F_VERIFY}"
   WriteRegStr HKLM "Software\Microsoft\Windows\CurrentVersion\Run" \
     "KexVerify" "$INSTDIR\verify.exe"
   SetOverwrite lastused
@@ -410,6 +450,9 @@ Section "Uninstall"
   DeleteRegValue HKLM "Software\KernelEx\KnownDLLs" "WTSAPI32"
   Delete /REBOOTOK "$INSTDIR\userenv.dll"
   DeleteRegValue HKLM "Software\KernelEx\KnownDLLs" "USERENV"
+  !ifndef KEX452
+    !include "maj2019\api-ms-w-uninst.nsh"
+  !endif
   
   File "util\sdbcreate\sdbdb\kexsdb.u.reg"
   ExecWait '"$WINDIR\regedit.exe" /s "$INSTDIR\kexsdb.u.reg"'
